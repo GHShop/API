@@ -1,7 +1,13 @@
 require "./initializers/**"
 
+require "http/client"
 require "amber"
-
+require "crinder"
+require "../src/handlers/**"
+require "../src/models/**"
+require "../src/helpers/oauth/**"
+require "../src/helpers/**"
+require "../src/renderers/**"
 require "../src/controllers/application_controller"
 require "../src/controllers/**"
 

@@ -1,6 +1,6 @@
 secret_key_base: Hh7OXU-eRT1zYHuh6FVxVsYQliLAG5JRWVzPxH0JPXM
 port: 3000
-name: gh_shop
+name: GHShop
 logging:
   severity: debug
   colorize: true

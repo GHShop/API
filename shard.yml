@@ -4,9 +4,9 @@ version: 0.1.0
 authors:
   - Tatsiujin Chin <c910335@gmail.com>
 
-crystal: 0.24.1
+crystal: 0.24.2
 
-license: UNLICENSED
+license: MIT
 
 targets:
   gh_shop:
@@ -19,11 +19,14 @@ dependencies:
   amber:
     github: amberframework/amber
     version: 0.6.7
-    #branch: master
 
   granite_orm:
     github: amberframework/granite-orm
     version: ~> 0.8.2
+
+  crinder:
+    github: c910335/crinder
+    version: ~> 0.1.3
 
   quartz_mailer:
     github: amberframework/quartz-mailer

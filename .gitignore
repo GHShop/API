@@ -1,12 +1,19 @@
+# Crystal
 /docs/
 /lib/
 /.crystal/
 /.shards/
-/.vscode/
 /tmp/
+
+# Amber
 .env
 .encryption_key
 production.yml
-.DS_Store
 /bin/
 /node_modules
+
+# macOS
+.DS_Store
+
+# Vim
+*.swp

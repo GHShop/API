@@ -1,6 +1,6 @@
 secret_key_base: CDn-DXHPjg_JmhoXWpImd3tvlPaf7D25lJDaDoypkUM
-port: 3000
-name: gh_shop
+port: 5566
+name: GHShop
 logging:
   severity: debug
   colorize: true
@@ -29,5 +29,4 @@ session:
   expires: 0
 
 secrets:
-  description: Store your development secrets credentials and settings here.
-
+  oauth_url: "http://docker.for.mac.localhost:3000/oauth/token/info"
