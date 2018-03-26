@@ -1,8 +1,8 @@
 module OAuth::ErrorHelper
   OAUTH_STATUS_CODE = {
-    invalid_request: 400,
-    invalid_token: 401,
-    insufficient_scope: 403
+    invalid_request:    400,
+    invalid_token:      401,
+    insufficient_scope: 403,
   }
 
   def token_missing!(realm : String)

@@ -37,9 +37,9 @@ module OAuth::Helper
 
   def token_string : String | Nil
     @token_string ||= if (authorization = request.headers["Authorization"]?) && (token_string = authorization[/Bearer (.*)$/, 1]?)
-      token_string
-    else
-      nil
-    end
+                        token_string
+                      else
+                        nil
+                      end
   end
 end

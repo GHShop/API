@@ -1,8 +1,8 @@
 module ErrorHelper
   STATUS_CODE = {
     bad_request: 400,
-    forbidden: 403,
-    not_found: 404
+    forbidden:   403,
+    not_found:   404,
   }
 
   def not_found!(description : String)
