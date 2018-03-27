@@ -19,7 +19,7 @@ class UserController < ApplicationController
   def update
     if user = User.find(params["id"])
       user.set_attributes(user_params.validate!)
-      user.level = params["level"].to_i
+      user.level = params["level"]
       if user.valid? && user.save
         UserRenderer.render user
       else
@@ -41,7 +41,7 @@ class UserController < ApplicationController
 
   def user_params
     params.validation do
-      required(:level) { |f| !f.nil? }
+      required(:level) { |f| !f.nil? && !!User::Level.parse?(f) }
     end
   end
 end

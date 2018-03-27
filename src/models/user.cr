@@ -26,8 +26,11 @@ class User < Granite::ORM::Base
   end
 
   def level=(number : Int)
-    @level_number = number
-    @level = Level.from_value(number)
+    self.level = Level.from_value(number)
+  end
+
+  def level=(name : String)
+    self.level = Level.parse(name)
   end
 
   def set_defaults
