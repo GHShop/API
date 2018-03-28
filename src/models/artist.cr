@@ -3,6 +3,7 @@ class Artist < Granite::ORM::Base
   table_name artists
 
   belongs_to user
+  has_many products
 
   field name : String
   field introduction : String

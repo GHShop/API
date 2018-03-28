@@ -9,5 +9,7 @@ Amber::Server.configure do |app|
   routes :api do
     resources "/users", UserController, except: [:new, :create, :edit]
     resources "/artists", ArtistController, except: [:new, :edit]
+    resources "/artists/:id/products", ProductController, only: [:index, :create]
+    resources "/products", ProductController, only: [:show, :update, :destroy]
   end
 end

@@ -2,7 +2,7 @@
 CREATE TABLE artists (
   id BIGSERIAL PRIMARY KEY,
   name VARCHAR,
-  introduction VARCHAR,
+  introduction TEXT,
   user_id BIGINT,
   created_at TIMESTAMP,
   updated_at TIMESTAMP
