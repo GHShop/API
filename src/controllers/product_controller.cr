@@ -1,7 +1,7 @@
 class ProductController < ApplicationController
   before_action do
     only [:index, :create, :update, :destroy] { authenticate!(User::Level::Manager, scopes: ["ghshop.own", "ghshop.manage"]) }
-    only [:show] { authenticate!(User::Level::Clerk, scopes: ["ghshop.own", "ghshop.manage", "ghshop.sell"]) }
+    only [:show, :stock, :replenish] { authenticate!(User::Level::Clerk, scopes: ["ghshop.own", "ghshop.manage", "ghshop.sell"]) }
   end
 
   def index
@@ -42,6 +42,30 @@ class ProductController < ApplicationController
         ProductRenderer.render product
       else
         bad_request! "Could not update product!"
+      end
+    else
+      not_found! "Product with id #{params["id"]} not found."
+    end
+  end
+
+  def stock
+    if product = Product.find(params["id"])
+      if product.stock(params["count"].to_i) && product.save
+        ProductRenderer.render product
+      else
+        bad_request! "Could not stock product with count #{params["count"]}!"
+      end
+    else
+      not_found! "Product with id #{params["id"]} not found."
+    end
+  end
+
+  def replenish
+    if product = Product.find(params["id"])
+      if product.replenish(params["count"].to_i) && product.save
+        ProductRenderer.render product
+      else
+        bad_request! "Could not replenish product with count #{params["count"]}!"
       end
     else
       not_found! "Product with id #{params["id"]} not found."

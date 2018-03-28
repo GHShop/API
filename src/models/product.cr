@@ -12,4 +12,15 @@ class Product < Granite::ORM::Base
   field shelf : Int32
   field sold : Int32
   timestamps
+
+  def stock(count : Int32)
+    @storage = @storage.not_nil! + count
+    @storage.not_nil! >= 0
+  end
+
+  def replenish(count : Int32)
+    @shelf = @shelf.not_nil! + count
+    @storage = @storage.not_nil! - count
+    @storage.not_nil! >= 0 && @shelf.not_nil! >= 0
+  end
 end
