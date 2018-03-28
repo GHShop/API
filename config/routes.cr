@@ -3,6 +3,7 @@ Amber::Server.configure do |app|
     plug Amber::Pipe::PoweredByAmber.new
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
+    plug Amber::Pipe::CORS.new
     plug JsonHandler.new
   end
 
