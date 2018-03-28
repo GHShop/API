@@ -23,7 +23,7 @@ class UserController < ApplicationController
       if user.valid? && user.save
         UserRenderer.render user
       else
-        bad_request! "Could not create User!"
+        bad_request! "Could not update user!"
       end
     else
       not_found! "User with id #{params["id"]} not found."
