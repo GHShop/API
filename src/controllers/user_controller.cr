@@ -9,7 +9,7 @@ class UserController < ApplicationController
   end
 
   def show
-    if user = User.find params["id"]
+    if user = User.find? params["id"]
       UserRenderer.render user
     else
       not_found! "User with id #{params["id"]} not found."
@@ -17,7 +17,7 @@ class UserController < ApplicationController
   end
 
   def update
-    if user = User.find(params["id"])
+    if user = User.find? params["id"]
       user.set_attributes(user_params.validate!)
       user.level = params["level"]
       if user.valid? && user.save
@@ -31,7 +31,7 @@ class UserController < ApplicationController
   end
 
   def destroy
-    if user = User.find params["id"]
+    if user = User.find? params["id"]
       user.destroy
       UserRenderer.render user
     else

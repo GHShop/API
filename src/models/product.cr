@@ -14,13 +14,13 @@ class Product < Granite::ORM::Base
   timestamps
 
   def stock(count : Int32)
-    @storage = @storage.not_nil! + count
-    @storage.not_nil! >= 0
+    self.storage += count
+    storage >= 0
   end
 
   def replenish(count : Int32)
-    @shelf = @shelf.not_nil! + count
-    @storage = @storage.not_nil! - count
-    @storage.not_nil! >= 0 && @shelf.not_nil! >= 0
+    self.shelf += count
+    self.storage -= count
+    storage >= 0 && shelf >= 0
   end
 end
