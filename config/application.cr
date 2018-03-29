@@ -1,8 +1,9 @@
-require "./initializers/**"
-
-require "http/client"
 require "amber"
+require "citrine-i18n"
 require "crinder"
+require "http/client"
+
+require "./initializers/**"
 require "../src/handlers/**"
 require "../src/models/**"
 require "../src/helpers/oauth/**"

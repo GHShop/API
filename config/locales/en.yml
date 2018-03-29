@@ -1,0 +1,27 @@
+oauth:
+  errors:
+    token:
+      missing: "The request is missing an access token."
+      invalid: "The access token provided is expired, revoked or malformed."
+    scope:
+      insufficient: "The request requires higher privileges than provided by the access token."
+
+user:
+  errors:
+    denied: "You don't have permission."
+    not_found: "User with id %{id} not found."
+    update: "Could not update user!"
+
+artist:
+  errors:
+    not_found: "Artist with id %{id} not found."
+    create: "Could not create artist!"
+    update: "Could not update artist!"
+
+product:
+  errors:
+    not_found: "Product with id %{id} not found."
+    create: "Could not create product!"
+    update: "Could not update product!"
+    stock: "Could not stock product with count %{count}!"
+    replenish: "Could not replenish product with count %{count}!"

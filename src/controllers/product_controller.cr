@@ -8,7 +8,7 @@ class ProductController < ApplicationController
     if artist = Artist.find? params["id"]
       ProductRenderer.render artist.products
     else
-      not_found! "Artist with id #{params["id"]} not found."
+      not_found! t("artist.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -16,7 +16,7 @@ class ProductController < ApplicationController
     if product = Product.find? params["id"]
       ProductRenderer.render product
     else
-      not_found! "Product with id #{params["id"]} not found."
+      not_found! t("product.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -28,10 +28,10 @@ class ProductController < ApplicationController
       if product.valid? && product.save
         ProductRenderer.render product
       else
-        bad_request! "Could not create product!"
+        bad_request! t("product.errors.create")
       end
     else
-      not_found! "Artist with id #{params["id"]} not found."
+      not_found! t("product.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -41,10 +41,10 @@ class ProductController < ApplicationController
       if product.valid? && product.save
         ProductRenderer.render product
       else
-        bad_request! "Could not update product!"
+        bad_request! t("product.errors.update")
       end
     else
-      not_found! "Product with id #{params["id"]} not found."
+      not_found! t("product.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -53,10 +53,10 @@ class ProductController < ApplicationController
       if product.stock(params["count"].to_i) && product.save
         ProductRenderer.render product
       else
-        bad_request! "Could not stock product with count #{params["count"]}!"
+        bad_request! t("product.errors.stock", {count: params["count"]})
       end
     else
-      not_found! "Product with id #{params["id"]} not found."
+      not_found! t("product.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -65,10 +65,10 @@ class ProductController < ApplicationController
       if product.replenish(params["count"].to_i) && product.save
         ProductRenderer.render product
       else
-        bad_request! "Could not replenish product with count #{params["count"]}!"
+        bad_request! t("product.errors.replenish", {count: params["count"]})
       end
     else
-      not_found! "Product with id #{params["id"]} not found."
+      not_found! t("product.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -77,7 +77,7 @@ class ProductController < ApplicationController
       product.destroy
       ProductRenderer.render product
     else
-      not_found! "Product with id #{params["id"]} not found."
+      not_found! t("product.errors.not_found", {id: params["id"]})
     end
   end
 

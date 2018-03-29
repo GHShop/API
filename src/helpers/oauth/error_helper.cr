@@ -6,17 +6,17 @@ module OAuth::ErrorHelper
   }
 
   def token_missing!(realm : String)
-    oauth_error!(realm, :invalid_request, "The request is missing an access token.")
+    oauth_error!(realm, :invalid_request, t("oauth.errors.token.missing"))
     nil
   end
 
   def token_invalid!(realm : String)
-    oauth_error!(realm, :invalid_token, "The access token provided is expired, revoked or malformed.")
+    oauth_error!(realm, :invalid_token, t("oauth.errors.token.invalid"))
     nil
   end
 
   def scope_insufficient!(realm : String)
-    oauth_error!(realm, :insufficient_scope, "The request requires higher privileges than provided by the access token.")
+    oauth_error!(realm, :insufficient_scope, t("oauth.errors.scope.insufficient"))
     nil
   end
 

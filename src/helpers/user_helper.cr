@@ -17,6 +17,6 @@ module UserHelper
 
   def authenticate!(level : User::Level, scopes : Array(String))
     return nil unless oauth_authenticate!(scopes, realm = "GHShop")
-    return forbidden!("You don't have permission.") unless current_user.level >= level
+    return forbidden!(t("user.errors.denied")) unless current_user.level >= level
   end
 end

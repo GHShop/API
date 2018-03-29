@@ -12,7 +12,7 @@ class ArtistController < ApplicationController
     if artist = Artist.find? params["id"]
       ArtistRenderer.render artist
     else
-      not_found! "Artist with id #{params["id"]} not found."
+      not_found! t("artist.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -22,7 +22,7 @@ class ArtistController < ApplicationController
     if artist.valid? && artist.save
       ArtistRenderer.render artist
     else
-      bad_request! "Could not create artist!"
+      bad_request! t("artist.error.create")
     end
   end
 
@@ -32,10 +32,10 @@ class ArtistController < ApplicationController
       if artist.valid? && artist.save
         ArtistRenderer.render artist
       else
-        bad_request! "Could not update artist!"
+        bad_request! t("artist.error.update")
       end
     else
-      not_found! "Artist with id #{params["id"]} not found."
+      not_found! t("artist.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -44,7 +44,7 @@ class ArtistController < ApplicationController
       artist.destroy
       ArtistRenderer.render artist
     else
-      not_found! "Artist with id #{params["id"]} not found."
+      not_found! t("artist.errors.not_found", {id: params["id"]})
     end
   end
 

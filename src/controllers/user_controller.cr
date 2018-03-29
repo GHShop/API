@@ -12,7 +12,7 @@ class UserController < ApplicationController
     if user = User.find? params["id"]
       UserRenderer.render user
     else
-      not_found! "User with id #{params["id"]} not found."
+      not_found! t("user.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -23,10 +23,10 @@ class UserController < ApplicationController
       if user.valid? && user.save
         UserRenderer.render user
       else
-        bad_request! "Could not update user!"
+        bad_request! t("user.errors.update")
       end
     else
-      not_found! "User with id #{params["id"]} not found."
+      not_found! t("user.errors.not_found", {id: params["id"]})
     end
   end
 
@@ -35,7 +35,7 @@ class UserController < ApplicationController
       user.destroy
       UserRenderer.render user
     else
-      not_found! "User with id #{params["id"]} not found."
+      not_found! t("user.errors.not_found", {id: params["id"]})
     end
   end
 

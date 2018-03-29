@@ -11,6 +11,7 @@
 production.yml
 /bin/
 /node_modules
+npm-debug.log
 
 # macOS
 .DS_Store
