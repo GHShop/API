@@ -23,6 +23,11 @@ module ErrorHelper
   end
 
   def error_json(type : Symbol, description : String)
-    %({"error":"#{type}","error_description":"#{description}"})
+    JSON.build do |json|
+      json.object do
+        json.field "error", type.to_s
+        json.field "error_description", description
+      end
+    end
   end
 end
