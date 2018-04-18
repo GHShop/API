@@ -9,7 +9,7 @@ class ArtistController < ApplicationController
   end
 
   def show
-    if artist = Artist.find? params["id"]
+    if artist = Artist.find params["id"]
       ArtistRenderer.render artist
     else
       not_found! t("artist.errors.not_found", {id: params["id"]})
@@ -27,7 +27,7 @@ class ArtistController < ApplicationController
   end
 
   def update
-    if artist = Artist.find? params["id"]
+    if artist = Artist.find params["id"]
       artist.set_attributes(artist_params.validate!)
       if artist.valid? && artist.save
         ArtistRenderer.render artist
@@ -40,7 +40,7 @@ class ArtistController < ApplicationController
   end
 
   def destroy
-    if artist = Artist.find? params["id"]
+    if artist = Artist.find params["id"]
       artist.destroy
       ArtistRenderer.render artist
     else

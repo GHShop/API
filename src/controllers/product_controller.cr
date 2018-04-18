@@ -5,7 +5,7 @@ class ProductController < ApplicationController
   end
 
   def index
-    if artist = Artist.find? params["id"]
+    if artist = Artist.find params["id"]
       ProductRenderer.render artist.products
     else
       not_found! t("artist.errors.not_found", {id: params["id"]})
@@ -13,7 +13,7 @@ class ProductController < ApplicationController
   end
 
   def show
-    if product = Product.find? params["id"]
+    if product = Product.find params["id"]
       ProductRenderer.render product
     else
       not_found! t("product.errors.not_found", {id: params["id"]})
@@ -21,7 +21,7 @@ class ProductController < ApplicationController
   end
 
   def create
-    if artist = Artist.find? params["id"]
+    if artist = Artist.find params["id"]
       product = Product.new(product_params.validate!)
       product.artist = artist
 
@@ -36,7 +36,7 @@ class ProductController < ApplicationController
   end
 
   def update
-    if product = Product.find? params["id"]
+    if product = Product.find params["id"]
       product.set_attributes(product_params.validate!)
       if product.valid? && product.save
         ProductRenderer.render product
@@ -49,7 +49,7 @@ class ProductController < ApplicationController
   end
 
   def stock
-    if product = Product.find? params["id"]
+    if product = Product.find params["id"]
       if product.stock(params["count"].to_i) && product.save
         ProductRenderer.render product
       else
@@ -61,7 +61,7 @@ class ProductController < ApplicationController
   end
 
   def replenish
-    if product = Product.find? params["id"]
+    if product = Product.find params["id"]
       if product.replenish(params["count"].to_i) && product.save
         ProductRenderer.render product
       else
@@ -73,7 +73,7 @@ class ProductController < ApplicationController
   end
 
   def destroy
-    if product = Product.find? params["id"]
+    if product = Product.find params["id"]
       product.destroy
       ProductRenderer.render product
     else

@@ -4,13 +4,13 @@ class Product < Granite::ORM::Base
 
   belongs_to artist
 
-  field name : String
-  field introduction : String
-  field cost : Int32
-  field price : Int32
-  field storage : Int32
-  field shelf : Int32
-  field sold : Int32
+  field! name : String
+  field! introduction : String
+  field! cost : Int32
+  field! price : Int32
+  field! storage : Int32
+  field! shelf : Int32
+  field! sold : Int32
   timestamps
 
   def stock(count : Int32)

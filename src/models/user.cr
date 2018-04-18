@@ -10,10 +10,10 @@ class User < Granite::ORM::Base
   table_name users
   before_create set_defaults
 
-  field oauth_id : Int64
-  field email : String
-  field name : String
-  field level_number : Int32
+  field! oauth_id : Int64
+  field! email : String
+  field! name : String
+  field! level_number : Int32
   timestamps
 
   def level

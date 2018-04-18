@@ -8,7 +8,7 @@ module UserHelper
   end
 
   def find_or_create_user
-    if user = User.find_by?(:oauth_id, token_info.user.id)
+    if user = User.find_by(:oauth_id, token_info.user.id)
       user
     else
       User.create(oauth_id: token_info.user.id, email: token_info.user.email, name: token_info.user.name)

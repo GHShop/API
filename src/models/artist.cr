@@ -5,7 +5,7 @@ class Artist < Granite::ORM::Base
   belongs_to user
   has_many products
 
-  field name : String
-  field introduction : String
+  field! name : String
+  field! introduction : String
   timestamps
 end
