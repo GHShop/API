@@ -6,5 +6,4 @@ class ProductRenderer < Crinder::Base(Product)
   field price : Int
   field storage : Int
   field shelf : Int
-  field sold : Int
 end

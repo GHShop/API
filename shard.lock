@@ -42,7 +42,7 @@ shards:
 
   granite_orm:
     github: c910335/granite
-    commit: 39637c5e3d3fe717deec4264e1b1646dd76f99bd
+    commit: 6698acd04424a3a875f184d5dfbc9e57a3252096
 
   i18n:
     github: TechMagister/i18n.cr

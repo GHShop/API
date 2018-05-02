@@ -5,7 +5,7 @@ class ArtistController < ApplicationController
 
   def index
     artists = Artist.all
-    ArtistRenderer.render artists
+    ArtistRenderer.render artists.to_a
   end
 
   def show

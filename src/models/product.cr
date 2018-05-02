@@ -10,7 +10,6 @@ class Product < Granite::ORM::Base
   field! price : Int32
   field! storage : Int32
   field! shelf : Int32
-  field! sold : Int32
   timestamps
 
   def stock(count : Int32)
@@ -22,5 +21,10 @@ class Product < Granite::ORM::Base
     self.shelf += count
     self.storage -= count
     storage >= 0 && shelf >= 0
+  end
+
+  def sell(count : Int32)
+    self.shelf -= count
+    shelf >= 0
   end
 end

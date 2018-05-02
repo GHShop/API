@@ -6,7 +6,7 @@ class ProductController < ApplicationController
 
   def index
     if artist = Artist.find params["id"]
-      ProductRenderer.render artist.products
+      ProductRenderer.render artist.products.to_a
     else
       not_found! t("artist.errors.not_found", {id: params["id"]})
     end
@@ -89,7 +89,6 @@ class ProductController < ApplicationController
       required(:price) { |f| !f.nil? }
       required(:storage) { |f| !f.nil? }
       required(:shelf) { |f| !f.nil? }
-      required(:sold) { |f| !f.nil? }
     end
   end
 end

@@ -26,7 +26,7 @@ dependencies:
 
   granite_orm:
     github: c910335/granite
-    branch: add-field!
+    branch: support-belongs-to-custom-method-name
 
   crinder:
     github: c910335/crinder

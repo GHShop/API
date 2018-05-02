@@ -25,3 +25,8 @@ product:
     update: "Could not update product!"
     stock: "Could not stock product with count %{count}!"
     replenish: "Could not replenish product with count %{count}!"
+
+sale:
+  errors:
+    not_found: "Sale with id %{id} not found."
+    create: "Could not create sale!"

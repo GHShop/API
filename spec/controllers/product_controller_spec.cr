@@ -1,7 +1,7 @@
 require "./spec_helper"
 
 def product_hash
-  {"name" => "Fake", "introduction" => "Fake", "cost" => "1", "price" => "1", "storage" => "1", "shelf" => "1", "sold" => "1", "artist_id" => "1"}
+  {"name" => "Fake", "introduction" => "Fake", "cost" => "1", "price" => "1", "storage" => "1", "shelf" => "1", "artist_id" => "1"}
 end
 
 def product_params
@@ -12,7 +12,6 @@ def product_params
   params << "price=#{product_hash["price"]}"
   params << "storage=#{product_hash["storage"]}"
   params << "shelf=#{product_hash["shelf"]}"
-  params << "sold=#{product_hash["sold"]}"
   params << "artist_id=#{product_hash["artist_id"]}"
   params.join("&")
 end

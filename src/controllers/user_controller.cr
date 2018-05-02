@@ -5,7 +5,7 @@ class UserController < ApplicationController
 
   def index
     users = User.all
-    UserRenderer.render users
+    UserRenderer.render users.to_a
   end
 
   def show

@@ -7,7 +7,6 @@ CREATE TABLE products (
   price INT,
   storage INT,
   shelf INT,
-  sold INT,
   artist_id BIGINT,
   created_at TIMESTAMP,
   updated_at TIMESTAMP

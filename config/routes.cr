@@ -11,7 +11,9 @@ Amber::Server.configure do |app|
     resources "/artists", ArtistController, except: [:new, :edit]
     resources "/artists/:id/products", ProductController, only: [:index, :create]
     resources "/products", ProductController, only: [:show, :update, :destroy]
+    resources "/sales", SaleController, only: [:index, :show, :destroy]
     put "/products/:id/stock", ProductController, :stock
     put "/products/:id/replenish", ProductController, :replenish
+    post "/products/:id/sell", SaleController, :create
   end
 end
