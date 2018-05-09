@@ -6,8 +6,12 @@ class SaleController < ApplicationController
   end
 
   def index
-    sales = Sale.all
-    SaleRenderer.render sales.to_a
+    if (from = parse params[:from]?, default: Time.now.at_beginning_of_day) && (to = parse params[:to]?, default: Time.now)
+      sales = Sale.all("WHERE created_at >= ? AND created_at <= ?", [from, to])
+      SaleRenderer.render sales.to_a
+    else
+      bad_request! t("time.errors.format")
+    end
   end
 
   def show

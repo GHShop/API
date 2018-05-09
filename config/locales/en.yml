@@ -30,3 +30,7 @@ sale:
   errors:
     not_found: "Sale with id %{id} not found."
     create: "Could not create sale!"
+
+time:
+  errors:
+    format: "Time format must be %Y-%m-%d %H:%M:%S."

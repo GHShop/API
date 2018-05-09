@@ -24,19 +24,10 @@ module OAuth::ErrorHelper
     type = :invalid_request unless OAUTH_STATUS_CODE.has_key? type
     response.status_code = OAUTH_STATUS_CODE[type]
     response.headers["WWW-Authenticate"] = oauth_error_header(realm, type, description)
-    context.content = oauth_error_json(type, description)
+    context.content = error_json(type, description)
   end
 
   def oauth_error_header(realm : String, type : Symbol, description : String)
     %(Bearer realm="#{realm}", error="#{type.to_s}, error_description="#{description}")
-  end
-
-  def oauth_error_json(type : Symbol, description : String)
-    JSON.build do |json|
-      json.object do
-        json.field "error", type.to_s
-        json.field "error_description", description
-      end
-    end
   end
 end
