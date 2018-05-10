@@ -25,8 +25,8 @@ dependencies:
     version: ~> 0.1.0
 
   granite_orm:
-    github: c910335/granite
-    branch: support-belongs-to-custom-method-name
+    github: amberframework/granite
+    branch: master
 
   crinder:
     github: c910335/crinder
