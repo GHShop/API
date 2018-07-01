@@ -1,10 +1,12 @@
-FROM amberframework/amber:v0.7.2
+FROM amberframework/amber:v0.8.0
 
 WORKDIR /app
 
 COPY shard.* /app/
-RUN crystal deps
+RUN shards update
 
 COPY . /app
+
+RUN rm -rf /app/node_modules
 
 CMD amber watch

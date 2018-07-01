@@ -1,10 +1,11 @@
 name: gh_shop
+
 version: 0.1.0
 
 authors:
   - Tatsiujin Chin <c910335@gmail.com>
 
-crystal: 0.24.2
+crystal: 0.25.1
 
 license: MIT
 
@@ -18,19 +19,19 @@ targets:
 dependencies:
   amber:
     github: amberframework/amber
-    version: ~> 0.7.2
+    version: ~> 0.8.0
 
   citrine-i18n:
     github: amberframework/citrine-i18n
-    version: ~> 0.1.0
+    version: ~> 0.3.2
 
-  granite_orm:
+  granite:
     github: amberframework/granite
-    branch: master
+    version: ~> 0.12.1
 
   crinder:
     github: c910335/crinder
-    version: ~> 0.1.3
+    version: ~> 0.1.4
 
   quartz_mailer:
     github: amberframework/quartz-mailer
@@ -38,9 +39,9 @@ dependencies:
 
   pg:
     github: will/crystal-pg
-    version: ~> 0.14.1
+    version: ~> 0.15.0
 
 development_dependencies:
-  garnet_spec:
-    github: amberframework/garnet-spec
-    version: ~> 0.1.1
+  mass_spec:
+    github: c910335/mass-spec
+    version: ~> 0.2.1

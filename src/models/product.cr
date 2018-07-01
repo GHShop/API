@@ -1,4 +1,4 @@
-class Product < Granite::ORM::Base
+class Product < Granite::Base
   adapter pg
   table_name products
 

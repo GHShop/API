@@ -1,4 +1,4 @@
-class User < Granite::ORM::Base
+class User < Granite::Base
   enum Level
     Guest
     Clerk

@@ -1,4 +1,4 @@
-class Artist < Granite::ORM::Base
+class Artist < Granite::Base
   adapter pg
   table_name artists
 

@@ -1,4 +1,4 @@
-class Sale < Granite::ORM::Base
+class Sale < Granite::Base
   adapter pg
   table_name sales
 
