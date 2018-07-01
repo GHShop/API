@@ -1,5 +1,7 @@
 FROM amberframework/amber:v0.8.0
 
+ENV AMBER_ENV production
+
 WORKDIR /app
 
 COPY . /app
