@@ -17,6 +17,10 @@ targets:
     main: lib/amber/src/amber/cli.cr
 
 dependencies:
+  pg:
+    github: c910335/crystal-pg
+    branch: fix-unix-socket-in-uri-prime
+
   amber:
     github: amberframework/amber
     version: ~> 0.8.0
@@ -36,10 +40,6 @@ dependencies:
   quartz_mailer:
     github: amberframework/quartz-mailer
     version: ~> 0.5.1
-
-  pg:
-    github: will/crystal-pg
-    version: ~> 0.15.0
 
 development_dependencies:
   mass_spec:
