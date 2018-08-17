@@ -16,5 +16,6 @@ Amber::Server.configure do |app|
     put "/products/:id/stock", ProductController, :stock
     put "/products/:id/replenish", ProductController, :replenish
     post "/products/:id/sell", SaleController, :create
+    get "/myself", MyselfController, :index
   end
 end
