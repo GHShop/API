@@ -4,6 +4,7 @@ Amber::Server.configure do |app|
     plug Amber::Pipe::PoweredByAmber.new
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
+    plug Amber::Pipe::CORS.new(methods: %w(GET POST PUT PATCH DELETE), headers: %w(Accept Content-Type Authorization))
   end
 
   routes :api do
